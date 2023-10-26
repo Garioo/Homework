@@ -9,6 +9,8 @@ public class PartyMembers : MonoBehaviour
     {
         FindPartyMembers(0, "Marius Qvarnstrøm");
     }
+
+    
     public void FindPartyMembers(int index, string name)
     {
         List<string> QuestPartyMembers = new List<string>()
@@ -18,6 +20,7 @@ public class PartyMembers : MonoBehaviour
             "Elias Jelert",
             "Kamil Grabara"
      };
+     
         QuestPartyMembers.Insert(0, name);
 
         int listLength = QuestPartyMembers.Count;
@@ -33,10 +36,4 @@ public class PartyMembers : MonoBehaviour
             }
         }
     }
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
     }
