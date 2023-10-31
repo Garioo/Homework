@@ -1,17 +1,21 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PartyMembers : MonoBehaviour
 {
+    public string myName = "Marius Qvarnstrøm";
+    public int myNumber = 0;
+
     // Start is called before the first frame update
     void Start()
     {
-        FindPartyMembers(0, "Marius Qvarnstrøm");
+        FindPartyMembers(myNumber, myName);
     }
 
     
-    public void FindPartyMembers(int index, string name)
+    public void FindPartyMembers(int myNumber, string myName)
     {
         List<string> QuestPartyMembers = new List<string>()
         {
@@ -19,9 +23,9 @@ public class PartyMembers : MonoBehaviour
             "Rasmus Falk",
             "Elias Jelert",
             "Kamil Grabara"
-     };
+        };
      
-        QuestPartyMembers.Insert(0, name);
+        QuestPartyMembers.Insert(myNumber, myName);
 
         int listLength = QuestPartyMembers.Count;
 
@@ -36,4 +40,4 @@ public class PartyMembers : MonoBehaviour
             }
         }
     }
-    }
+}
