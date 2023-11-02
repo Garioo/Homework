@@ -14,6 +14,18 @@ public class LearningCurve : MonoBehaviour
         //DirectionLight = GameObject.Find("Directional Light");
         Debug.Log(CamTransform.localPosition);
 
+        //Weapons
+
+        Weapon huntingBow = new Weapon("Hunting Bow", 105);
+            huntingBow.PrintWeaponStats();
+
+        Weapon warBow = huntingBow;
+            warBow.name = "War Bow";
+            warBow.damage = 155;
+            warBow.PrintWeaponStats();
+
+             
+        //Characters
 
         Character hero = new Character();
         hero.PrintCharacterInfo();
@@ -24,16 +36,6 @@ public class LearningCurve : MonoBehaviour
         Character villain = hero;
         villain.name = "Neville Longbottom";
         villain.PrintCharacterInfo();
-
-        Weapon huntingBow = new Weapon("Hunting Bow", 105);
-
-        Weapon warBow = huntingBow;
-        warBow.name = "War Bow";
-        warBow.damage = 155;
-
-
-        huntingBow.PrintWeaponStats();
-        warBow.PrintWeaponStats();
 
         Paladin knight = new Paladin("Sir Arthur", huntingBow);
         knight.PrintCharacterInfo();
