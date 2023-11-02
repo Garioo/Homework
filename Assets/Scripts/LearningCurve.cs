@@ -4,44 +4,49 @@ using UnityEngine;
 
 public class LearningCurve : MonoBehaviour
 {
-    public Transform CamTransform;
-    public GameObject DirectionLight;
-    public Transform LightTransform;
-    // Start is called before the first frame update
-    void Start()
-    {
-        CamTransform = this.GetComponent<Transform>();
-        //DirectionLight = GameObject.Find("Directional Light");
-        Debug.Log(CamTransform.localPosition);
+	public Transform CamTransform;
+	public GameObject DirectionLight;
+	public Transform LightTransform;
 
-        //Weapons
+	// Start is called before the first frame update
+	void Start()
+	{
+		CamTransform = this.GetComponent<Transform>();
+		//DirectionLight = GameObject.Find("Directional Light");
+		Debug.Log(CamTransform.localPosition);
 
-        Weapon huntingBow = new Weapon("Hunting Bow", 105);
-            huntingBow.PrintWeaponStats();
+		//Weapons
 
-        Weapon warBow = huntingBow;
-            warBow.name = "War Bow";
-            warBow.damage = 155;
-            warBow.PrintWeaponStats();
+		Weapon huntingBow = new Weapon("Hunting Bow", 105);
+			huntingBow.PrintWeaponStats();
 
-             
+		Weapon warBow = huntingBow;
+			warBow.name = "War Bow";
+			warBow.damage = 155;
+			warBow.PrintWeaponStats();
+
         //Characters
 
+        // Name + List of parameters = Signature of the method
+
         Character hero = new Character();
-        hero.PrintCharacterInfo();
+		hero.PrintCharacterInfo();
 
-        Character heroine = new Character("Lagatha");
-        heroine.PrintCharacterInfo();
+		Character heroine = new Character("Lagatha", 6);
+		Character experinceHeroine = new Character("Grogu", 15);
 
-        Character villain = hero;
-        villain.name = "Neville Longbottom";
-        villain.PrintCharacterInfo();
+		experinceHeroine.PrintCharacterInfo();
+		heroine.PrintCharacterInfo();
 
-        Paladin knight = new Paladin("Sir Arthur", huntingBow);
-        knight.PrintCharacterInfo();
+		Character villain = hero;
+		villain.name = "Darth Vader";
+		villain.PrintVillanInfo();
 
-        
-    }
+		Paladin knight = new Paladin("Sir Arthur",9, huntingBow);
+		knight.PrintCharacterInfo();
 
-    // Update is called once per frame
+		
+	}
+
+	// Update is called once per frame
 }

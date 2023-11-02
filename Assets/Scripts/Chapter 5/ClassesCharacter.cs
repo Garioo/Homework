@@ -6,10 +6,13 @@ public class Character
 {
     public string name;
     public int exp = 0;
+    public int defaultExp = 100; //Declared default Exp too 100
+    
 
     public Character()
     {
         name = "Not Assigned";
+        this.exp = defaultExp;
     }
 
     public Character(string name)
@@ -17,9 +20,20 @@ public class Character
         this.name = name;
     }
 
+    public Character(string name, int exp)
+    {
+        this.name = name;
+        this.exp = defaultExp; //Never write number in code - Declare it
+    }
+
     public virtual void PrintCharacterInfo()
     {
         Debug.LogFormat("Hero; {0} - {1} EXP", this.name, this.exp);
+    }
+
+    public virtual void PrintVillanInfo()
+    {
+        Debug.LogFormat("Villan; {0} - {1} EXP", this.name, this.exp);
     }
 }
 
@@ -46,12 +60,13 @@ public class Paladin: Character
 {
     public Weapon weapon;
 
-    public Paladin(string name, Weapon weapon): base(name)
+    public Paladin(string name, int exp, Weapon weapon) : base(name, exp)
     {
         this.weapon = weapon;
+        
     }
     public override void PrintCharacterInfo()
     {
-        Debug.LogFormat("Hail {0} - take up your {1}!", this.name, this.weapon.name);
+        Debug.LogFormat("Hail {0} ({1}) - take up your {2}!", name, this.exp, weapon.name);
     }
 }
